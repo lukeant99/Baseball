@@ -1,7 +1,8 @@
 class Player:
-    def __init__(self,first_Name,last_Name,position,batting_order):
-        self.firstName = first_Name
-        self.lastName = last_Name
+
+    def __init__(self,first_name,last_name,position,batting_order):
+        self.firstName = first_name
+        self.lastName = last_name
         self.position = position
         self.battingOrder = batting_order
 

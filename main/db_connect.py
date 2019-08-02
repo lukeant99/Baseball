@@ -2,7 +2,7 @@ import sqlite3
 
 def create_connection(player_info):
     try:
-        conn = sqlite3.connect("O:\\backup\\practice_code\\db\\practice_code.db")
+        conn = sqlite3.connect("O:\\backup\\practice_code\\Bills-are-Good\\db\\practice_code.db")
         c = conn.cursor()
 
         c.execute('''INSERT INTO Player_Info (FirstName, LastName, Position, BattingOrder) VALUES (?, ?, ?, ?)''',
