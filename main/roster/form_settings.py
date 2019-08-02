@@ -1,7 +1,5 @@
 import tkinter as tk
 from main.db_connect import create_connection
-import sqlite3
-from main.roster.player import Player
 
 fields = 'First Name', 'Last Name', 'Position', 'Batting Order'
 
@@ -19,16 +17,6 @@ def fetch(entries):
 def insert_values(e):
     player_info = fetch(e)
     create_connection(player_info)
-
-    #conn = sqlite3.connect("O:\\backup\\practice_code\\db\\practice_code.db")
-    #c = conn.cursor()
-
-    # try:
-    #     c.execute('''INSERT INTO Player_Info (FirstName, LastName, Position, BattingOrder) VALUES (?, ?, ?, ?)''', (player_info[0],player_info[1],player_info[2],player_info[3]))
-    # except sqlite3.IntegrityError as e:
-    #     print('sqlite error: ', e.args[0])
-    # conn.commit()
-    # conn.close()
 
 def makeform(root, fields):
     entries = []
