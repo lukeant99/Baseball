@@ -24,7 +24,13 @@ def fetch(entries):
                 messagebox.showerror("Error", "Must enter integer value in Batting Order")
 
         player_info.append(text)
+        
+    clear_entries(entries)
     return player_info
+
+def clear_entries(entries):
+    for entry in entries:
+        entry[1].delete(0)
 
 def insert_values(e):
     player_info = fetch(e)
@@ -32,6 +38,12 @@ def insert_values(e):
 
 def makeform(root, fields):
     entries = []
+
+    header_row = tk.Frame(root)
+    header_label = tk.Label(header_row, width=30, text="Enter Player Information", fg="blue", font=("Arial", 12))
+    header_label.pack(side=tk.LEFT)
+    header_row.pack(side=tk.TOP, fill=tk.X, padx=5, pady=3)
+
     for field in fields:
         row = tk.Frame(root)
         label = tk.Label(row, width=12, text=field, anchor='w')
@@ -44,7 +56,7 @@ def makeform(root, fields):
 
 if __name__ == '__main__':
     root = tk.Tk()
-    root.title('Enter Player Information')
+    root.title('Player Info')
 
     ents = makeform(root, fields)
     root.bind((lambda event, e=ents: fetch(e)))
