@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from main.db_connect import create_connection
+from main.db_connect import insert_player_info
 
 fields = 'First Name', 'Last Name', 'Position', 'Batting Order'
 
@@ -24,17 +24,17 @@ def fetch(entries):
                 messagebox.showerror("Error", "Must enter integer value in Batting Order")
 
         player_info.append(text)
-        
+
     clear_entries(entries)
     return player_info
 
 def clear_entries(entries):
     for entry in entries:
-        entry[1].delete(0)
+        entry[1].delete(0, 'end')
 
 def insert_values(e):
     player_info = fetch(e)
-    create_connection(player_info)
+    insert_player_info(player_info)
 
 def makeform(root, fields):
     entries = []
